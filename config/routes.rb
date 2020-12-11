@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :news
+  scope 'admin' do
+    resources :news
+  end
 end
