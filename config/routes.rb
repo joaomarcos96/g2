@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  get 'admin', to: redirect('/admin/news')
+
   get 'news', to: 'news#index'
   get 'news/:id', to: 'news#show'
 end
