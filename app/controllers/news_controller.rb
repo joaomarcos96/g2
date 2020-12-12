@@ -5,6 +5,10 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.all
+
+    if params[:must_auth]
+      render :index_admin
+    end
   end
 
   # GET /news/1
