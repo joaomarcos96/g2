@@ -1,11 +1,11 @@
 admin:
-  name: 'Joao Marcos'
-  email: 'joao@test.com'
+  name: 'Admin user'
+  email: 'admin_user@test.com'
   admin: true
   encrypted_password: <%= User.new.send(:password_digest, '123456') %>
 
 non_admin:
   name: 'Regular user'
-  email: 'regular@test.com'
+  email: 'regular_user@test.com'
   encrypted_password: <%= User.new.send(:password_digest, '654321') %>
 
