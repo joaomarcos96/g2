@@ -11,6 +11,27 @@
   </head>
 
   <body>
+    <ul>
+      <li>
+        <%=
+          link_to 'News',
+          current_user.try(:admin?) ? news_index_path : '/news'
+        %>
+      </li>
+      <% if user_signed_in? %>
+        <% if current_user.try(:admin?) %>
+          <li><%= link_to 'Users', users_path %></li>
+        <% end %>
+        <li><%= link_to 'Profile', edit_user_registration_path %></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Log in', user_session_path %></li>
+      <% end %>
+    </ul>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
