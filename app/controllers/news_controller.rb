@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: %i[show edit update destroy]
+  before_action :auth_admin!, except: %i[index show]
 
   # GET /news
   # GET /news.json
@@ -70,5 +71,16 @@ class NewsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def news_params
       params.require(:news).permit(:title, :content)
+    end
+
+    def auth_admin!
+      authenticate_user!
+      authorize_admin
+    end
+
+    def authorize_admin
+      unless current_user.admin?
+        render file: "#{Rails.root}/public/404.html", status: 404
+      end
     end
 end

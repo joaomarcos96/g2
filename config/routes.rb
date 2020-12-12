@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :news
     # resources :users
   end
+
+  get 'news', to: 'news#index'
+  get 'news/:id', to: 'news#show'
 end
