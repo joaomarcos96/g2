@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   scope 'admin' do
     resources :news
-    # resources :users
+    resources :users
   end
 
   get 'news', to: 'news#index'
