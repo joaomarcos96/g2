@@ -62,6 +62,14 @@ class UsersController < ApplicationController
     end
   end
 
+  protected
+
+    def authorize
+      if !current_user.admin? || current_user.id == @user&.id
+        render file: "#{Rails.root}/public/404.html", status: 404
+      end
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -76,11 +84,5 @@ class UsersController < ApplicationController
     def auth_admin!
       authenticate_user!
       authorize
-    end
-
-    def authorize
-      if !current_user.admin? || current_user.id == @user&.id
-        render file: "#{Rails.root}/public/404.html", status: 404
-      end
     end
 end
