@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, path: 'auth'
 
-  scope 'admin' do
+  scope 'admin', defaults: { must_auth: true } do
     resources :news
     resources :users
   end
