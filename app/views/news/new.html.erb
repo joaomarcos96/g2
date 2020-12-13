@@ -1,5 +1,11 @@
-<h1>New News</h1>
+<%= link_to t('general.back'), news_index_path, class: 'btn btn-info' %>
+
+<br><br>
+
+<h1><%= t('general.new_f') << ' ' << t('activerecord.models.news') %></h1>
+
+<br>
 
 <%= render 'form', news: @news %>
 
-<%= link_to 'Back', news_index_path %>
+<br>
