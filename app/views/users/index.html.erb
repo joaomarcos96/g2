@@ -2,37 +2,38 @@
 
 <br>
 
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"><%= t('activerecord.attributes.user.name') %></th>
-        <th scope="col"><%= t('activerecord.attributes.user.email') %></th>
-        <th scope="col" colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @users.each do |user| %>
+<% if !@users.empty? %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td><%= link_to t('general.details'), user %></td>
-          <td><%= link_to t('general.edit'), edit_user_path(user) %></td>
-          <td>
-            <%=
-              link_to t('general.remove'),
-              user,
-              method: :delete,
-              data: { confirm: t('general.are_you_sure') }
-            %>
-          </td>
+          <th scope="col"><%= t('activerecord.attributes.user.name') %></th>
+          <th scope="col"><%= t('activerecord.attributes.user.email') %></th>
+          <th scope="col" colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
 
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to t('general.details'), user %></td>
+            <td><%= link_to t('general.edit'), edit_user_path(user) %></td>
+            <td>
+              <%=
+                link_to t('general.remove'),
+                user,
+                method: :delete,
+                data: { confirm: t('general.are_you_sure') }
+              %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 <br>
 
 <%=
