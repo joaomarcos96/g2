@@ -1,7 +1,7 @@
 <% if @news.empty? %>
 <% else %>
   <% @news.each do |news|%>
-    <div class="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
       <div class="col p-4 d-flex flex-column position-static">
         <h3 class="mb-0"><%= news.title %></h3>
         <div class="mb-1 text-muted"><%= news.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></div>

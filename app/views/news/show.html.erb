@@ -1,14 +1,24 @@
-<p>
-  <strong>Title:</strong>
-  <%= @news.title %>
-</p>
+<div class="no-gutters flex-md-row mb-4 position-relative">
+  <div class="p-4 d-flex flex-column position-static">
+    <h1 class="mb-0"><%= @news.title %></h1>
+    <small class="mb-1 text-muted">
+      <%= @news.updated_at.strftime('%d/%m/%Y %H:%M:%S') %>
+    </small>
+    <h4 class="mb-auto text-muted">
+      <%= @news.subtitle %>
+    </h4>
+    <hr class="w-100">
+    <p><%= @news.content %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @news.content %>
-</p>
+<br>
 
 <% if current_user.try(:admin?) %>
-  <%= link_to 'Edit', edit_news_path(@news) %> |
+  <%= link_to t('general.edit'), edit_news_path(@news), class: 'btn btn-secondary' %>
 <% end %>
-<%= link_to 'Back', news_index_path %>
+<%=
+  link_to t('general.back'),
+  current_user.try(:admin?) ? news_index_path : '/news',
+  class: 'btn btn-info'
+%>
