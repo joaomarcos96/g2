@@ -2,36 +2,42 @@
 
 <br>
 
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"><%= t('activerecord.attributes.news.title') %></th>
-        <th scope="col"><%= t('activerecord.attributes.news.subtitle') %></th>
-        <th scope="col" colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @news.each do |news| %>
+<% if !@news.empty? %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= news.title %></td>
-          <td><%= news.subtitle %></td>
-          <td><%= link_to t('general.details'), news %></td>
-          <td><%= link_to t('general.edit'), edit_news_path(news) %></td>
-          <td>
-            <%=
-              link_to t('general.remove'),
-              news,
-              method: :delete,
-              data: { confirm: t('general.are_you_sure') }
-            %>
-          </td>
+          <th scope="col"><%= t('activerecord.attributes.news.title') %></th>
+          <th scope="col"><%= t('activerecord.attributes.news.subtitle') %></th>
+          <th scope="col"><%= t('activerecord.attributes.news.created_at') %></th>
+          <th scope="col"><%= t('activerecord.attributes.news.updated_at') %></th>
+          <th scope="col" colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+
+      <tbody>
+        <% @news.each do |news| %>
+          <tr>
+            <td><%= news.title %></td>
+            <td><%= news.subtitle %></td>
+            <td><%= news.created_at.strftime('%m/%d/%Y %H:%M:%S') %></td>
+            <td><%= news.updated_at.strftime('%m/%d/%Y %H:%M:%S') %></td>
+            <td><%= link_to t('general.details'), news %></td>
+            <td><%= link_to t('general.edit'), edit_news_path(news) %></td>
+            <td>
+              <%=
+                link_to t('general.remove'),
+                news,
+                method: :delete,
+                data: { confirm: t('general.are_you_sure') }
+              %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 
 <br>
 

@@ -1,6 +1,9 @@
-<h1>Editing News</h1>
+<%= link_to t('general.back'), news_index_path, class: 'btn btn-info' %>
+
+<br><br>
+
+<h1><%= t('general.edit') << ' ' << t('activerecord.models.news') %></h1>
+
+<br>
 
 <%= render 'form', news: @news %>
-
-<%= link_to 'Show', @news %> |
-<%= link_to 'Back', news_index_path %>
