@@ -24,10 +24,18 @@
             class="d-flex justify-content-end align-items-center position-absolute">
             <% if user_signed_in? %>
               <% if current_user.try(:admin?) %>
-                <%= link_to 'Gerenciar notícias', news_index_path, class: 'btn btn-sm btn-outline-secondary' %>
-                <%= link_to 'Gerenciar usuários', users_path, class: 'btn btn-sm btn-outline-secondary' %>
+                <%=
+                  link_to t('general.manage') << ' ' << t('activerecord.models.news').downcase << 's',
+                  news_index_path,
+                  class: 'btn btn-sm btn-outline-secondary'
+                %>
+                <%=
+                  link_to t('general.manage') << ' ' << t('activerecord.models.user').downcase << 's',
+                  users_path,
+                  class: 'btn btn-sm btn-outline-secondary'
+                %>
               <% end %>
-              <%= link_to 'Perfil', edit_user_registration_path, class: 'btn btn-sm btn-outline-secondary' %>
+              <%= link_to t('general.account'), edit_user_registration_path, class: 'btn btn-sm btn-outline-secondary' %>
               <%=
                 link_to 'Sair',
                 destroy_user_session_path,
@@ -42,11 +50,17 @@
       </header>
     </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <br>
 
     <main role="main" class="container">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-info">
+          <a class="close" data-dismiss="alert">×</a>
+          <%= msg %>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
+
   </body>
 </html>
