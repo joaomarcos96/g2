@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+  general:
+    are_you_sure: Are you sure?
+    edit: Edit
+    details: Details
+    show: Show
+    remove: Remove
+    delete: Delete
+    new_m: New
+    new_f: New

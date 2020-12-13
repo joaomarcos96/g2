@@ -27,7 +27,16 @@ pt-BR:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
-          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+        has_many: Não é possível excluir o registro pois existem %{record} dependentes
+  general:
+    are_you_sure: Tem certeza?
+    edit: Editar
+    details: Detalhes
+    show: Exibir
+    remove: Remover
+    delete: Deletar
+    new_m: Novo
+    new_f: Nova
   date:
     abbr_day_names:
     - dom
