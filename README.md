@@ -2,7 +2,7 @@
 
 ## Introdução
 
-`G2` é portal de notícias escrita em `Ruby on Rails`, contendo uma área pública e uma área administrativa.
+`G2` é um portal de notícias escrito em `Ruby on Rails`, contendo uma área pública e uma área administrativa.
 
 ## Ferramentas
 
