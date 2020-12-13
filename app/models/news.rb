@@ -15,6 +15,7 @@ class News < ApplicationRecord
   def strip_whitespace
     self.title = self.title.strip unless self.title.nil?
     self.subtitle = self.subtitle.strip unless self.subtitle.nil?
+    self.content = self.content.strip unless self.content.nil?
   end
 
   def should_generate_new_friendly_id?
