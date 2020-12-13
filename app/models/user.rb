@@ -5,4 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, :email, presence: true
+
+  before_save :strip_whitespace
+
+  def strip_whitespace
+    self.name = self.name.strip unless self.name.nil?
+    self.email = self.email.strip unless self.email.nil?
+  end
 end
