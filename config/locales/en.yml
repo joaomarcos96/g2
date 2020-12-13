@@ -45,7 +45,9 @@ en:
     account: Account
     update: Update
     cancel_my_account: Cancel my account
-    login: Login
+    login: Log in
     sign_up: Sign up
+    sign_out: Sign out
     forgot_password: Forgot your password?
     continue_reading: Continue reading
+    send_me_reset_password_instructions: Send me reset password instructions

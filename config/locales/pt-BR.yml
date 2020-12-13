@@ -54,8 +54,10 @@ pt-BR:
     cancel_my_account: Cancelar minha conta
     login: Entrar
     sign_up: Criar conta
+    sign_out: Sair
     forgot_password: Esqueceu sua senha?
     continue_reading: Continuar lendo
+    send_me_reset_password_instructions: Me envie instruções para recuperar a senha
   date:
     abbr_day_names:
     - dom
