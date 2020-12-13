@@ -12,8 +12,8 @@ pt-BR:
       default_message: "Por favor veja os problemas abaixo:"
     labels:
       user:
-        password: Senha (deixe em branco se não quiser alterar)
-        current_password: Senha atual (precisamos da senha atual para confirmar as alterações)
+        current_password: Senha atual
+        remember_me: Manter conectado
     # Examples
     # labels:
     #   defaults:

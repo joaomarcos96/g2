@@ -52,6 +52,9 @@ pt-BR:
     account: Conta
     update: Atualizar
     cancel_my_account: Cancelar minha conta
+    login: Entrar
+    sign_up: Criar conta
+    forgot_password: Esqueceu sua senha?
   date:
     abbr_day_names:
     - dom
