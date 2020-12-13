@@ -4,9 +4,9 @@
     <div class="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
       <div class="col p-4 d-flex flex-column position-static">
         <h3 class="mb-0"><%= news.title %></h3>
-        <div class="mb-1 text-muted"><%= news.updated_at.strftime('%m/%d/%Y %H:%M:%S') %></div>
+        <div class="mb-1 text-muted"><%= news.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></div>
         <p class="card-text mb-auto"><%= news.subtitle %></p>
-        <%= link_to t('general.continue_reading'), "/news/#{news.id}", class: 'stretched-link' %>
+        <%= link_to t('general.continue_reading'), "/news/#{news.slug}", class: 'stretched-link' %>
       </div>
     </div>
   <% end %>
