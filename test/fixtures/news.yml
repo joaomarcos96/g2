@@ -1,7 +1,9 @@
 one:
-  title: 'Title one'
-  content: 'Content one'
+  title: Title one
+  subtitle: Subtitle one
+  content: Content one
 
 two:
-  title: 'Title two'
-  content: 'Content two'
+  title: Title two
+  subtitle: Subtitle two
+  content: Content two

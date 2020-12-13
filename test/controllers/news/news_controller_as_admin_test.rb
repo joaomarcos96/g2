@@ -28,7 +28,7 @@ class NewsControllerAsAdminTest < ActionDispatch::IntegrationTest
       post news_index_url, params: params
     end
 
-    assert_redirected_to news_url News.last
+    assert_redirected_to news_index_url
   end
 
   test 'GET /admin/news/:id as admin' do
