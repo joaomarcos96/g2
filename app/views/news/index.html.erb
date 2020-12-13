@@ -1,21 +1,13 @@
-<h1>News</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @news.each do |news| %>
-      <tr>
-        <td><%= news.title %></td>
-        <td><%= news.content %></td>
-        <td><%= link_to 'Show', "/news/#{news.id}" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @news.empty? %>
+<% else %>
+  <% @news.each do |news|%>
+    <div class="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <h3 class="mb-0"><%= news.title %></h3>
+        <div class="mb-1 text-muted"><%= news.updated_at.strftime('%m/%d/%Y %H:%M:%S') %></div>
+        <p class="card-text mb-auto"><%= news.subtitle %></p>
+        <%= link_to t('general.continue_reading'), "/news/#{news.id}", class: 'stretched-link' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

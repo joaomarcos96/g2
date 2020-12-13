@@ -55,6 +55,7 @@ pt-BR:
     login: Entrar
     sign_up: Criar conta
     forgot_password: Esqueceu sua senha?
+    continue_reading: Continuar lendo
   date:
     abbr_day_names:
     - dom
