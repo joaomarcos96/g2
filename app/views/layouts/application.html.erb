@@ -8,28 +8,45 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
   </head>
 
   <body>
-    <ul>
-      <li>
-        <%= link_to 'News', '/news' %>
-      </li>
-      <% if user_signed_in? %>
-        <% if current_user.try(:admin?) %>
-          <li><%= link_to 'Manage news', news_index_path %></li>
-          <li><%= link_to 'Manage users', users_path %></li>
-        <% end %>
-        <li><%= link_to 'Profile', edit_user_registration_path %></li>
-        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to 'Log in', user_session_path %></li>
-      <% end %>
-    </ul>
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="d-flex flex-nowrap justify-content-center align-items-center m-0 p-0 position-relative">
+          <div class="text-center">
+            <%= link_to 'G2 Notícias', '/news', class: 'blog-header-logo text-dark' %>
+          </div>
+          <nav
+            id="navbar-buttons-container"
+            class="d-flex justify-content-end align-items-center position-absolute">
+            <% if user_signed_in? %>
+              <% if current_user.try(:admin?) %>
+                <%= link_to 'Gerenciar notícias', news_index_path, class: 'btn btn-sm btn-outline-secondary' %>
+                <%= link_to 'Gerenciar usuários', users_path, class: 'btn btn-sm btn-outline-secondary' %>
+              <% end %>
+              <%= link_to 'Perfil', edit_user_registration_path, class: 'btn btn-sm btn-outline-secondary' %>
+              <%=
+                link_to 'Sair',
+                destroy_user_session_path,
+                class: 'btn btn-sm btn-outline-secondary',
+                method: :delete
+              %>
+            <% else %>
+              <%= link_to 'Entrar', user_session_path, class: 'btn btn-sm btn-outline-secondary' %>
+            <% end %>
+          </nav>
+        </div>
+      </header>
+    </div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+    <main role="main" class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>
