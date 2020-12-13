@@ -1,12 +1,19 @@
 ---
 pt-BR:
+  news:
+    create:
+      success: Notícia criada com sucesso
+    update:
+      success: Notícia atualizada com sucesso
+    destroy:
+      success: Notícia removida com sucesso
   timestamps: &timestamps
     created_at: 'Criado em '
     updated_at: 'Atualizado em '
   activerecord:
     models:
       news: Notícia
-      users: Usuário
+      user: Usuário
       comment: Comentário
     attributes:
       news:
@@ -14,12 +21,15 @@ pt-BR:
         title: Título
         subtitle: Subtítulo
         content: Conteúdo
-      users:
+      user:
         <<: *timestamps
         email: E-mail
         name: Nome
         admin: Administrador
-      comments:
+        password: Senha
+        password_confirmation: Confirmar senha
+        current_password: Senha atual
+      comment:
         <<: *timestamps
         content: Conteúdo
     errors:
@@ -37,6 +47,11 @@ pt-BR:
     delete: Deletar
     new_m: Novo
     new_f: Nova
+    back: Voltar
+    manage: Gerenciar
+    account: Conta
+    update: Atualizar
+    cancel_my_account: Cancelar minha conta
   date:
     abbr_day_names:
     - dom
