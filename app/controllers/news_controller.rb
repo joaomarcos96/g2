@@ -56,7 +56,6 @@ class NewsController < ApplicationController
   private
     def set_news
       @news = News.friendly.find params[:id]
-      redirect_to action: action_name, id: @news.friendly_id, status: 301 unless @news.friendly_id == params[:id]
     end
 
     def news_params
