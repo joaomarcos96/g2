@@ -7,6 +7,8 @@ class News < ApplicationRecord
 
   before_save :strip_whitespace
 
+  scope :newest_first, -> { order(created_at: :desc) }
+
   def strip_whitespace
     self.title = self.title.strip unless self.title.nil?
     self.subtitle = self.subtitle.strip unless self.subtitle.nil?
