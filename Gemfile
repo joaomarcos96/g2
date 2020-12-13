@@ -9,6 +9,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap', '~> 4.5', '>= 4.5.2'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'friendly_id', '~> 5.4.0'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.4'
 gem 'pg', '~> 1.1'
